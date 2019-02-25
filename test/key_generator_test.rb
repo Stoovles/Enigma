@@ -17,9 +17,12 @@ class KeyGeneratorTest < Minitest::Test
   end
 
   def test_it_can_pad_random_number
-    skip
+    key_generator = KeyGenerator.new
+    random_number = key_generator.random_number_1_to_99999
+    padded_random_number = key_generator.pad_random_number(random_number)
 
-    assert_equal #####, .pad_random_number
+    assert_equal 5, padded_random_number.length
+    assert_equal true, padded_random_number.include?(random_number.to_s)
   end
 
   def test_it_can_cons_random_number
