@@ -15,16 +15,7 @@ module OffsetGenerator
 
   def last_four_digits(number)
     number = number.to_s
-    number[-4..-1].to_i
+    number[-4..-1]
   end
-
-#helpful
-#.mon => returns month
-#.day => returns day
-#.year => returns year.last(2)
-
-
-
-
 
 end
