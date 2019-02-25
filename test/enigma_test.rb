@@ -92,10 +92,10 @@ class EnigmaTest < Minitest::Test
 
   ##################OFFSETGENERATOR TEST###############
   def test_it_can_return_current_ordinal_date
-    skip
     enigma = Enigma.new
+    OffsetGenerator.stubs(:current_date).returns(Date.new(2019,2,25))
     current_date = enigma.current_ordinal_date
-    assert_equal #use mocks/stubs here
+    assert_equal 6, current_date.length
   end
 
   def test_it_can_square
