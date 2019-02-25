@@ -4,14 +4,14 @@ require './lib/key_generator'
 class KeyGeneratorTest < Minitest::Test
 
   def test_it_can_return_random_number_1_to_99999
-    key_generator = KeyGenerator.new
+
     random_number = key_generator.random_number_1_to_99999
 
     assert_equal true, (1..99999).include?(random_number)
   end
 
   def test_it_can_pad_random_number
-    key_generator = KeyGenerator.new
+
     random_number = key_generator.random_number_1_to_99999
     padded_random_number = key_generator.pad_random_number(random_number)
 
@@ -20,7 +20,7 @@ class KeyGeneratorTest < Minitest::Test
   end
 
   def test_it_can_cons_random_number
-    key_generator = KeyGenerator.new
+
     random_number = key_generator.random_number_1_to_99999
     padded_random_number = key_generator.pad_random_number(random_number)
     cons_array = key_generator.cons_padded_number(padded_random_number)
