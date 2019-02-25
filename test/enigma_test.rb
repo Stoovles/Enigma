@@ -28,8 +28,8 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_encrypt_with_given_key_and_todays_date
-    OffsetGenerator.stubs(:current_ordinal_date).returns("022519")
     enigma = Enigma.new
+    enigma.stubs(:current_ordinal_date).returns("0225195")
     expected = {
       encryption: "ohhavcsdyo ",
       key: "02715",
@@ -47,8 +47,16 @@ class EnigmaTest < Minitest::Test
   def test_it_can_encrypt_with_random_key_and_todays_date
     skip
     enigma = Enigma.new
+    enigma.stubs(:random_and_pad).returns("02715")
+    enigma.stubs(:current_ordinal_date).returns("022519")
+    binding.pry
+    expected = {
+      encryption: "ohhavcsdyo ",
+      key: "02715",
+      date: "022519"
+    }
 
-
+    assert_equal expected, enigma.encrypt("hello world")
   end
   ##################KEYGENERATOR TEST###############
   def test_it_can_return_random_number_1_to_99999
@@ -93,7 +101,7 @@ class EnigmaTest < Minitest::Test
   ##################OFFSETGENERATOR TEST###############
   def test_it_can_return_current_ordinal_date
     enigma = Enigma.new
-    OffsetGenerator.stubs(:current_date).returns(Date.new(2019,2,25))
+    enigma.stubs(:current_date).returns(Date.new(2019,2,25))
     current_date = enigma.current_ordinal_date
     assert_equal 6, current_date.length
   end
@@ -118,7 +126,8 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_return_offsets
     enigma = Enigma.new
-    OffsetGenerator.stubs(:current_ordinal_date).returns("022519")
+    enigma.stubs(:current_ordinal_date).returns("0225195")
+    binding.pry
     offsets = enigma.offsets(enigma.current_ordinal_date)
 
     assert_equal 4, offsets.count
