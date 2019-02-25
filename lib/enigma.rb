@@ -8,7 +8,7 @@ class Enigma
   def initialize
   end
 
-  def encrypt(message, key = random_key, date = current_date_offset)
+  def encrypt(message, key = given_key, date = current_date_offset)
     # The encrypt method takes a message String as an argument.
     # It can optionally take a Key and Date as arguments to use for encryption.
     # If the key is not included, generate a random key.

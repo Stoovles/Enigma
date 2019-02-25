@@ -61,9 +61,12 @@ class EnigmaTest < Minitest::Test
     assert_equal ["0", "4", "4", "4"], enigma.string_of_numbers_to_array("0444")
   end
 
-  def test_it_can_return_last_four_digits_of_ordinal_date_squared
-    skip
+  def test_it_can_return_offsets
+    enigma = Enigma.new
+    offsets = enigma.offsets
     #integration test
     #mocks/stubs
+    assert_equal 4, offsets.count
+
   end
 end
