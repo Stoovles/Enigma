@@ -47,8 +47,8 @@ class EncryptHash
       shift(:B, index, message_array)
     elsif index % 4 == 2
       shift(:C, index, message_array)
-    else
-      shift(:D, index, message_array)
+    else shift(:D, index, message_array)
     end
   end
+
 end

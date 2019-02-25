@@ -2,7 +2,7 @@ require './test/test_helper'
 require './lib/enigma'
 
 class EnigmaTest < Minitest::Test
-
+###########ENIGMA TEST###############
   def test_it_exists
     enigma = Enigma.new
 
@@ -56,6 +56,7 @@ class EnigmaTest < Minitest::Test
 
     assert_equal expected, enigma.encrypt("hello world")
   end
+
   ##################KEYGENERATOR TEST###############
   def test_it_can_return_random_number_1_to_99999
     enigma = Enigma.new
