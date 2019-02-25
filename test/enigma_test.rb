@@ -28,8 +28,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_encrypt_with_given_key_and_todays_date
-    #mocks/stubs required
-    
+    OffsetGenerator.stubs(:current_ordinal_date).returns("022519")
     enigma = Enigma.new
     expected = {
       encryption: "ohhavcsdyo ",
