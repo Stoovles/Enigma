@@ -5,6 +5,12 @@ class KeyGeneratorTest < Minitest::Test
 
   end
 
+  def test_it_exists
+    key_generator = KeyGenerator.new
+
+    assert_instance_of KeyGenerator, key_generator
+  end
+
   def test_it_can_return_random_number_1_to_99999
 
 

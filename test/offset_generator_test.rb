@@ -5,6 +5,12 @@ class OffsetGeneratorTest < Minitest::Test
 
   end
 
+  def test_it_exists
+    offset_generator = OffsetGenerator.new
+
+    assert_instance_of OffsetGenerator, offset_generator
+  end
+
   def test_it_can_return_current_date
 
 
