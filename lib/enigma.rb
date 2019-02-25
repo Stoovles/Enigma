@@ -24,13 +24,6 @@ class Enigma
     # :date => the date used for decryption as a String in the form DDMMYY
   end
 
-  def random_key
-
-  end
-
-  def current_date_offset
-
-  end
 
 
 end
