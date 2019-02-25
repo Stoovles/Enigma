@@ -1,9 +1,7 @@
 require './test/test_helper'
+require './lib/key_generator'
 
 class KeyGeneratorTest < Minitest::Test
-  def setup
-
-  end
 
   def test_it_exists
     key_generator = KeyGenerator.new
@@ -12,15 +10,21 @@ class KeyGeneratorTest < Minitest::Test
   end
 
   def test_it_can_return_random_number_1_to_99999
+    key_generator = KeyGenerator.new
+    random_number = key_generator.random_number_1_to_99999
 
-
-    assert_equal #####, .random_number_1_to_99999
+    assert_equal true, (1..99999).include?(random_number)
   end
 
   def test_it_can_pad_random_number
-
+    skip
 
     assert_equal #####, .pad_random_number
+  end
+
+  def test_it_can_cons_random_number
+    skip
+
   end
 
 end
