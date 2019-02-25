@@ -49,5 +49,13 @@ class EnigmaTest < Minitest::Test
     assert_equal 16, enigma.squared(4)
   end
 
+  def test_it_can_return_last_four_digits
+    enigma = Enigma.new
 
+    assert_equal 4444, enigma.last_four_digits(11114444)
+  end
+
+  def test_it_can_return_last_four_digits_of_ordinal_date_squared
+    #mocks/stubs
+  end
 end

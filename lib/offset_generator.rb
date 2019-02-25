@@ -13,6 +13,11 @@ module OffsetGenerator
     date * date
   end
 
+  def last_four_digits(number)
+    number = number.to_s
+    number[-4..-1].to_i
+  end
+
 #helpful
 #.mon => returns month
 #.day => returns day
