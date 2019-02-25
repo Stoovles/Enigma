@@ -118,10 +118,10 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_return_offsets
     enigma = Enigma.new
+    OffsetGenerator.stubs(:current_ordinal_date).returns("022519")
     offsets = enigma.offsets(enigma.current_ordinal_date)
-    #integration test
-    #mocks/stubs
-    assert_equal 4, offsets.count
 
+    assert_equal 4, offsets.count
+    assert_equal ["5", "3", "6", "1"], offsets
   end
 end
