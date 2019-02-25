@@ -19,9 +19,9 @@ class Enigma
   end
 
   def decrypt(ciphertext, key, date = current_date_offset)
-    decrypt_hash = EncryptHash.new(cons_padded_number(key), offsets(date), message)
+    decrypt_hash = EncryptHash.new(cons_padded_number(key), offsets(date), ciphertext)
     decrypt_return_hash = {
-      encryption: encrypt_hash.encrypt_message(false),
+      decryption: decrypt_hash.encrypt_message(false),
       key: key,
       date: date
     }
