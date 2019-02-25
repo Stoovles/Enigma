@@ -9,6 +9,7 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, enigma
   end
 
+  ##################KEYGENERATOR TEST###############
   def test_it_can_return_random_number_1_to_99999
     enigma = Enigma.new
     random_number = enigma.random_number_1_to_99999
@@ -33,5 +34,20 @@ class EnigmaTest < Minitest::Test
 
     assert_equal 4, cons_array.length
   end
+
+  ##################OFFSETGENERATOR TEST###############
+  def test_it_can_return_current_ordinal_date
+    skip
+    enigma = Enigma.new
+    current_date = enigma.current_ordinal_date
+    assert_equal #use mocks/stubs here
+  end
+
+  def test_it_can_square
+    enigma = Enigma.new
+
+    assert_equal 16, enigma.squared(4)
+  end
+
 
 end
