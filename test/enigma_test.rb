@@ -9,6 +9,25 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, enigma
   end
 
+  def test_it_can_encrypt_with_given_key_and_date
+
+  end
+
+  def test_it_can_decrypt_with_given_key_and_date
+
+  end
+
+  def test_it_can_encrypt_with_given_key_and_todays_date
+
+  end
+
+  def test_it_can_decrypt_with_given_key_and_todays_date
+    
+  end
+
+  def test_it_can_encrypt_with_random_key_and_todays_date
+
+  end
   ##################KEYGENERATOR TEST###############
   def test_it_can_return_random_number_1_to_99999
     enigma = Enigma.new
@@ -77,7 +96,7 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_return_offsets
     enigma = Enigma.new
-    offsets = enigma.offsets
+    offsets = enigma.offsets(enigma.current_ordinal_date)
     #integration test
     #mocks/stubs
     assert_equal 4, offsets.count
