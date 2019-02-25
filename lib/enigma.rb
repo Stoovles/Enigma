@@ -1,4 +1,6 @@
 class Enigma
+  include KeyGenerator
+  include OffsetGenerator
 
   def initialize
   end

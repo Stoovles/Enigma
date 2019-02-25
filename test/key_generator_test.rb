@@ -3,12 +3,6 @@ require './lib/key_generator'
 
 class KeyGeneratorTest < Minitest::Test
 
-  def test_it_exists
-    key_generator = KeyGenerator.new
-
-    assert_instance_of KeyGenerator, key_generator
-  end
-
   def test_it_can_return_random_number_1_to_99999
     key_generator = KeyGenerator.new
     random_number = key_generator.random_number_1_to_99999
@@ -26,8 +20,12 @@ class KeyGeneratorTest < Minitest::Test
   end
 
   def test_it_can_cons_random_number
-    skip
+    key_generator = KeyGenerator.new
+    random_number = key_generator.random_number_1_to_99999
+    padded_random_number = key_generator.pad_random_number(random_number)
+    cons_array = key_generator.cons_padded_number(padded_random_number)
 
+    assert_equal 4, cons_array.length
   end
 
 end
