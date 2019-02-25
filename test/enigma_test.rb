@@ -28,11 +28,13 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_encrypt_with_given_key_and_todays_date
-    skip
+    #mocks/stubs required
+    
     enigma = Enigma.new
     expected = {
-
-
+      encryption: "ohhavcsdyo ",
+      key: "02715",
+      date: "022519"
     }
     assert_equal expected, enigma.encrypt("hello world", "02715")
   end

@@ -4,3 +4,4 @@ gem 'simplecov', require: false, group: :test
 gem 'pry'
 gem 'minitest'
 gem 'rake'
+gem 'mocha'

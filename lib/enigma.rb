@@ -1,5 +1,6 @@
 require './lib/key_generator'
 require './lib/offset_generator'
+require './lib/encrypt_hash'
 
 class Enigma
   include KeyGenerator
@@ -9,10 +10,12 @@ class Enigma
   end
 
   def encrypt(message, key = random_and_pad, date = current_ordinal_date)
-    value_part_1 = cons_padded_number(key)
-    value_part_2 = offsets(date)
-    encrypt_hash = EncryptHash.new(value_part_1, value_part_2, message)
-
+    encrypt_hash = EncryptHash.new(cons_padded_number(key), offsets(date), message)
+    encrypt_return_hash = {
+      encryption: encrypt_hash.encrypt_message,
+      key: key,
+      date: date
+    }
     # The encrypt method takes a message String as an argument.
     # It can optionally take a Key and Date as arguments to use for encryption.
     # If the key is not included, generate a random key.
