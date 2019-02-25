@@ -29,7 +29,7 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_encrypt_with_given_key_and_todays_date
     enigma = Enigma.new
-    enigma.stubs(:current_ordinal_date).returns("0225195")
+    enigma.stubs(:current_ordinal_date).returns("022519")
     expected = {
       encryption: "ohhavcsdyo ",
       key: "02715",
@@ -45,11 +45,9 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_encrypt_with_random_key_and_todays_date
-    skip
     enigma = Enigma.new
     enigma.stubs(:random_and_pad).returns("02715")
     enigma.stubs(:current_ordinal_date).returns("022519")
-    binding.pry
     expected = {
       encryption: "ohhavcsdyo ",
       key: "02715",
@@ -126,8 +124,7 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_return_offsets
     enigma = Enigma.new
-    enigma.stubs(:current_ordinal_date).returns("0225195")
-    binding.pry
+    enigma.stubs(:current_ordinal_date).returns("022519")
     offsets = enigma.offsets(enigma.current_ordinal_date)
 
     assert_equal 4, offsets.count
