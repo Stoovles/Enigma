@@ -43,9 +43,14 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_decrypt_with_given_key_and_todays_date
-    skip
     enigma = Enigma.new
-
+    enigma.stubs(:current_ordinal_date).returns("022519")
+    enigma.decrypt("ohhavcsdyo ", "02715")
+    expected = {
+      decryption: "hello world",
+      key: "02715",
+      date: "025519"
+    }
   end
 
   def test_it_can_encrypt_with_random_key_and_todays_date
