@@ -1,17 +1,21 @@
 require 'date'
 module OffsetGenerator
 
+  def current_date
+    Date.today
+  end
+  
   def current_ordinal_date
     ordinal_date = []
-    today = Date.today
-    ordinal_date << today.mon.to_s
-    ordinal_date << today.day.to_s
-    ordinal_date << today.year.to_s[-2..-1]
-    ordinal_date.join.to_i
+    today = current_date
+    ordinal_date << today.mon.to_s.rjust(2, '0')
+    ordinal_date << today.day.to_s.rjust(2, '0')
+    ordinal_date << today.year.to_s[-2..-1].rjust(2, '0')
+    ordinal_date.join
   end
 
   def squared(date)
-    date * date
+    date.to_i * date.to_i
   end
 
   def last_four_digits(number)

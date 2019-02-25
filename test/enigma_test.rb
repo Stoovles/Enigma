@@ -2,7 +2,7 @@ require './test/test_helper'
 require './lib/enigma'
 
 class EnigmaTest < Minitest::Test
-
+###########ENIGMA TEST###############
   def test_it_exists
     enigma = Enigma.new
 
@@ -10,24 +10,53 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_encrypt_with_given_key_and_date
+    enigma = Enigma.new
 
+    expected = {
+    encryption: "keder ohulw",
+    key: "02715",
+    date: "040895"
+    }
+
+    assert_equal expected, enigma.encrypt("hello world", "02715", "040895")
   end
 
   def test_it_can_decrypt_with_given_key_and_date
+    skip
+    enigma = Enigma.new
 
   end
 
   def test_it_can_encrypt_with_given_key_and_todays_date
-
+    enigma = Enigma.new
+    enigma.stubs(:current_ordinal_date).returns("022519")
+    expected = {
+      encryption: "ohhavcsdyo ",
+      key: "02715",
+      date: "022519"
+    }
+    assert_equal expected, enigma.encrypt("hello world", "02715")
   end
 
   def test_it_can_decrypt_with_given_key_and_todays_date
-    
+    skip
+    enigma = Enigma.new
+
   end
 
   def test_it_can_encrypt_with_random_key_and_todays_date
+    enigma = Enigma.new
+    enigma.stubs(:random_and_pad).returns("02715")
+    enigma.stubs(:current_ordinal_date).returns("022519")
+    expected = {
+      encryption: "ohhavcsdyo ",
+      key: "02715",
+      date: "022519"
+    }
 
+    assert_equal expected, enigma.encrypt("hello world")
   end
+
   ##################KEYGENERATOR TEST###############
   def test_it_can_return_random_number_1_to_99999
     enigma = Enigma.new
@@ -70,10 +99,10 @@ class EnigmaTest < Minitest::Test
 
   ##################OFFSETGENERATOR TEST###############
   def test_it_can_return_current_ordinal_date
-    skip
     enigma = Enigma.new
+    enigma.stubs(:current_date).returns(Date.new(2019,2,25))
     current_date = enigma.current_ordinal_date
-    assert_equal #use mocks/stubs here
+    assert_equal 6, current_date.length
   end
 
   def test_it_can_square
@@ -96,10 +125,10 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_return_offsets
     enigma = Enigma.new
+    enigma.stubs(:current_ordinal_date).returns("022519")
     offsets = enigma.offsets(enigma.current_ordinal_date)
-    #integration test
-    #mocks/stubs
-    assert_equal 4, offsets.count
 
+    assert_equal 4, offsets.count
+    assert_equal ["5", "3", "6", "1"], offsets
   end
 end
