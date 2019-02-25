@@ -18,12 +18,13 @@ class Enigma
     }
   end
 
-  def decrypt(ciphertext, key, date = current_date_offset)
-    # The decrypt method returns a hash with three keys:
-    #
-    # :decryption => the decrypted String
-    # :key => the key used for decryption as a String
-    # :date => the date used for decryption as a String in the form DDMMYY
+  def decrypt(ciphertext, key, date = current_ordinal_date)
+    decrypt_hash = EncryptHash.new(cons_padded_number(key), offsets(date), ciphertext)
+    decrypt_return_hash = {
+      decryption: decrypt_hash.encrypt_message(false),
+      key: key,
+      date: date
+    }
   end
 
 
