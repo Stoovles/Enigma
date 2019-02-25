@@ -6,6 +6,10 @@ class EncryptHash
   def initialize(key_array, date_array)
     @key_array = key_array
     @date_array = date_array
+    @character_set = ["a", "b", "c", "d", "e",
+    "f", "g", "h", "i", "j", "k", "l", "m", "n",
+    "o", "p", "q", "r", "s", "t", "u", "v", "w",
+    "x", "y", "z", " "]
   end
 
   def compile_hash
@@ -15,5 +19,7 @@ class EncryptHash
     keys = [:A, :B, :C, :D]
     Hash[keys.zip(values)]
   end
-  
+
+
+
 end
