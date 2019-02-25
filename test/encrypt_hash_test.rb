@@ -28,4 +28,6 @@ class EnigmaTest < Minitest::Test
 
     assert_equal "keder ohulw", encrypt_hash.encrypt_message
   end
+
+
 end

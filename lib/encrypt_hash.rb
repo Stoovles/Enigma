@@ -23,7 +23,7 @@ class EncryptHash
     Hash[keys.zip(values)]
   end
 
-  def encrypt_message
+  def encrypt_message(encrypt = true)
     message_array = []
     @message.each_char {|char| message_array << char}
     message_array.each_index do |index|
@@ -37,8 +37,14 @@ class EncryptHash
     compile_hash.map do |key, value|
       cipher[key] = (value % 27)
     end
-    @message[index] = @character_set[(@character_set.index(@message[index]) + cipher[symbol]) % 27]
+    if encrypt = true
+      @message[index] = @character_set[(@character_set.index(@message[index]) + cipher[symbol]) % 27]
+    else @message[index] = @character_set[(@character_set.index(@message[index]) - cipher[symbol]) % 27]
+    end
+
   end
+
+
 
   def conditional_shift(index, message_array)
     if index % 4 == 0
