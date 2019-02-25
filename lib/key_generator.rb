@@ -18,4 +18,8 @@ module KeyGenerator
     cons_array = cons_array.map {|touple| touple.join}
   end
 
+  def random_and_pad
+    random_num = random_number_1_to_99999
+    pad_random_number(random_num)
+  end
 end

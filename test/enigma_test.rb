@@ -9,12 +9,38 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, enigma
   end
 
+  def test_it_can_encrypt_with_given_key_and_date
+
+  end
+
+  def test_it_can_decrypt_with_given_key_and_date
+
+  end
+
+  def test_it_can_encrypt_with_given_key_and_todays_date
+
+  end
+
+  def test_it_can_decrypt_with_given_key_and_todays_date
+    
+  end
+
+  def test_it_can_encrypt_with_random_key_and_todays_date
+
+  end
   ##################KEYGENERATOR TEST###############
   def test_it_can_return_random_number_1_to_99999
     enigma = Enigma.new
     random_number = enigma.random_number_1_to_99999
 
     assert_equal true, (1..99999).include?(random_number)
+  end
+
+  def test_it_can_pad_number
+    enigma = Enigma.new
+    padded_number = enigma.pad_random_number(4456)
+
+    assert_equal "04456", padded_number
   end
 
   def test_it_can_pad_random_number
@@ -24,6 +50,13 @@ class EnigmaTest < Minitest::Test
 
     assert_equal 5, padded_random_number.length
     assert_equal true, padded_random_number.include?(random_number.to_s)
+  end
+
+  def test_it_can_cons_number
+    enigma = Enigma.new
+    cons_array = enigma.cons_padded_number("04456")
+
+    assert_equal ["04", "44", "45", "56"], cons_array
   end
 
   def test_it_can_cons_random_number
@@ -63,7 +96,7 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_return_offsets
     enigma = Enigma.new
-    offsets = enigma.offsets
+    offsets = enigma.offsets(enigma.current_ordinal_date)
     #integration test
     #mocks/stubs
     assert_equal 4, offsets.count

@@ -26,8 +26,7 @@ module OffsetGenerator
     int_array
   end
 
-  def offsets
-    ordinal_date = current_ordinal_date
+  def offsets(ordinal_date)
     squared_date = squared(ordinal_date)
     last_four_digits = last_four_digits(squared_date)
     string_of_numbers_to_array(last_four_digits)
