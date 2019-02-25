@@ -33,6 +33,13 @@ class EnigmaTest < Minitest::Test
     assert_equal true, padded_random_number.include?(random_number.to_s)
   end
 
+  def test_it_can_cons_number
+    enigma = Enigma.new
+    cons_array = enigma.cons_padded_number("04456")
+
+    assert_equal ["04", "44", "45", "56"], cons_array
+  end
+
   def test_it_can_cons_random_number
     enigma = Enigma.new
     random_number = enigma.random_number_1_to_99999
