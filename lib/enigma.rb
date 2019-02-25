@@ -11,7 +11,7 @@ class Enigma
   def encrypt(message, key = random_and_pad, date = current_ordinal_date)
     value_part_1 = cons_padded_number(key)
     value_part_2 = offsets(date)
-    encrypt_hash = EncryptHash.new(value_part_1, value_part_2)
+    encrypt_hash = EncryptHash.new(value_part_1, value_part_2, message)
 
     # The encrypt method takes a message String as an argument.
     # It can optionally take a Key and Date as arguments to use for encryption.
