@@ -1,6 +1,3 @@
-class OffsetGenerator
-
-  def initialize
-  end 
+module OffsetGenerator
 
 end

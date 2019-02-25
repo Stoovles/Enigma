@@ -1,4 +1,9 @@
+require './lib/key_generator'
+require './lib/offset_generator'
+
 class Enigma
+  include KeyGenerator
+  include OffsetGenerator
 
   def initialize
   end
