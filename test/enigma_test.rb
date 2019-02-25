@@ -17,6 +17,13 @@ class EnigmaTest < Minitest::Test
     assert_equal true, (1..99999).include?(random_number)
   end
 
+  def test_it_can_pad_number
+    enigma = Enigma.new
+    padded_number = enigma.pad_random_number(4456)
+
+    assert_equal "04456", padded_number
+  end
+
   def test_it_can_pad_random_number
     enigma = Enigma.new
     random_number = enigma.random_number_1_to_99999
