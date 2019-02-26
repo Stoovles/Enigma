@@ -4,7 +4,7 @@ module OffsetGenerator
   def current_date
     Date.today
   end
-  
+
   def current_ordinal_date
     ordinal_date = []
     today = current_date
@@ -19,7 +19,6 @@ module OffsetGenerator
   end
 
   def last_four_digits(number)
-    int_array = []
     number = number.to_s
     number = number[-4..-1]
   end
