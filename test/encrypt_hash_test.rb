@@ -27,6 +27,12 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, encrypt_hash.character_set
   end
 
+  def test_it_can_take_upcase
+    encrypt_hash = EncryptHash.new(["02", "27", "71", "15"], ["1", "0", "2", "5"], "HELLO WORLD")
+
+    assert_equal "hello world", encrypt_hash.message
+  end
+
   def test_it_can_compile_hash
     encrypt_hash = EncryptHash.new(["02", "27", "71", "15"], ["1", "0", "2", "5"], "hello world")
 
@@ -44,6 +50,12 @@ class EnigmaTest < Minitest::Test
     encrypt_hash = EncryptHash.new(["02", "27", "71", "15"], ["1", "0", "2", "5"], "hello world")
 
     assert_equal "keder ohulw", encrypt_hash.encrypt_message
+  end
+
+  def test_it_can_encrypt_message_with_non_character_set
+    encrypt_hash = EncryptHash.new(["02", "27", "71", "15"], ["1", "0", "2", "5"], "hello world!")
+
+    assert_equal "keder ohulw!", encrypt_hash.encrypt_message
   end
 
   def test_it_can_shift_encrypt

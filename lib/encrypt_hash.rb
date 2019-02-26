@@ -12,7 +12,7 @@ class EncryptHash
     "f", "g", "h", "i", "j", "k", "l", "m", "n",
     "o", "p", "q", "r", "s", "t", "u", "v", "w",
     "x", "y", "z", " "]
-    @message = message
+    @message = message.downcase
   end
 
   def compile_hash
@@ -34,10 +34,10 @@ class EncryptHash
 
   def shift(encrypt, symbol, index, message_array)
     cipher = {}
-    compile_hash.map do |key, value|
-      cipher[key] = (value % 27)
-    end
-    if encrypt == true
+    compile_hash.map {|key, value| cipher[key] = (value % 27)}
+    if !@character_set.include?(@message[index])
+      @message[index] = @message[index]
+    elsif encrypt == true
       @message[index] = @character_set[(@character_set.index(@message[index]) + cipher[symbol]) % 27]
     else @message[index] = @character_set.reverse[(@character_set.reverse.index(@message[index]) + cipher[symbol]) % 27]
     end
