@@ -107,6 +107,12 @@ class EnigmaTest < Minitest::Test
   end
 
   ##################OFFSETGENERATOR TEST###############
+  def test_it_can_return_current_date
+    enigma = Enigma.new
+
+    assert_instance_of Date, enigma.current_date
+  end
+
   def test_it_can_return_current_ordinal_date
     enigma = Enigma.new
     enigma.stubs(:current_date).returns(Date.new(2019,2,25))
