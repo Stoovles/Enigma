@@ -2,7 +2,7 @@ require './test/test_helper'
 require './lib/enigma'
 require './lib/encrypt_hash'
 
-class EnigmaTest < Minitest::Test
+class EncryptHashTest < Minitest::Test
 
   def test_it_exists
     encrypt_hash = EncryptHash.new([], [], "hello world")
