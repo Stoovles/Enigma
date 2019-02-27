@@ -52,6 +52,12 @@ class EnigmaTest < Minitest::Test
     assert_equal "keder ohulw", encrypt_hash.encrypt_message
   end
 
+  def test_it_can_encrypt_message_when_optional_false
+    encrypt_hash = EncryptHash.new(["02", "27", "71", "15"], ["1", "0", "2", "5"], "keder ohulw")
+
+    assert_equal "hello world", encrypt_hash.encrypt_message(false)
+  end
+
   def test_it_can_encrypt_message_with_non_character_set
     encrypt_hash = EncryptHash.new(["02", "27", "71", "15"], ["1", "0", "2", "5"], "hello world!")
 

@@ -111,7 +111,7 @@ class EnigmaTest < Minitest::Test
     enigma = Enigma.new
     random_pad = enigma.random_and_pad
 
-    assert_equal 4, random_pad.length
+    assert_equal 5, random_pad.length
   end
 
   ##################OFFSETGENERATOR TEST###############
