@@ -93,7 +93,7 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_cons_number
     enigma = Enigma.new
-    cons_array = enigma.cons_padded_number("04456")
+    cons_array = enigma.convert_number_to_consecutive_array("04456")
 
     assert_equal ["04", "44", "45", "56"], cons_array
   end
@@ -102,9 +102,16 @@ class EnigmaTest < Minitest::Test
     enigma = Enigma.new
     random_number = enigma.random_number_1_to_99999
     padded_random_number = enigma.pad_random_number(random_number)
-    cons_array = enigma.cons_padded_number(padded_random_number)
+    cons_array = enigma.convert_number_to_consecutive_array(padded_random_number)
 
     assert_equal 4, cons_array.length
+  end
+
+  def test_it_can_random_and_pad
+    enigma = Enigma.new
+    random_pad = enigma.random_and_pad
+
+    assert_equal 4, random_pad.length
   end
 
   ##################OFFSETGENERATOR TEST###############

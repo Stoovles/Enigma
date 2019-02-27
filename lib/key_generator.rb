@@ -9,7 +9,7 @@ module KeyGenerator
     rand_num_to_s.rjust(5, '0')
   end
 
-  def cons_padded_number(padded_number)
+  def convert_number_to_consecutive_array(padded_number)
     cons_array = []
     char_array = []
     padded_number.each_char {|char| char_array << char}
